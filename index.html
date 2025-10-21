@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>Global Distribuidora de Bebidas — Distribuição em Manaus</title>
+  <meta name="description" content="Global Distribuidora de Bebidas — Distribuição em atacado e varejo, retirada no local em Manaus." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#000;
+      --panel:#0b0b0b;
+      --muted:#9aa0a6;
+      --neon:#00baff;
+      --accent:#f5c22b;
+      --border: rgba(255,255,255,0.06);
+      --maxw:1100px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Arial;
+      background: radial-gradient(circle at top, #020202 0%, #000 100%);
+      color:#fff;
+      line-height:1.5;
+      overflow-x:hidden;
+      -webkit-font-smoothing:antialiased;
+    }
+
+    .container{max-width:var(--maxw);margin:0 auto;padding:28px}
+
+    header{
+      position:sticky;top:0;z-index:60;
+      display:flex;align-items:center;justify-content:space-between;
+      gap:18px;padding:16px 20px;border-bottom:1px solid var(--border);
+      background:rgba(0,0,0,0.6);backdrop-filter:blur(8px);
+      transition:background .3s ease;
+    }
+    .logo{font-weight:800;font-size:18px;letter-spacing:1px;flex-shrink:0}
+    nav{display:flex;align-items:center;gap:18px;flex-wrap:wrap;justify-content:flex-end}
+    nav a{color:var(--muted);text-decoration:none;font-weight:600;font-size:14px;transition:.18s}
+    nav a:hover{color:var(--neon)}
+    .online{display:flex;align-items:center;gap:8px;padding:6px 10px;border-radius:10px;border:1px solid var(--border);color:var(--muted);font-size:13px}
+    .online span{width:9px;height:9px;background:#00ff66;border-radius:50%;box-shadow:0 0 8px #00ff66}
+
+    /* HERO */
+    .hero{padding:70px 20px 40px;text-align:center;max-width:860px;margin:0 auto}
+    .chip{display:inline-block;background:rgba(255,255,255,0.03);border:1px solid var(--border);padding:8px 14px;border-radius:999px;color:var(--muted);margin-bottom:18px;font-size:13px}
+    h1{font-size:28px;margin:12px 0 10px;font-weight:800}
+    .lead{color:var(--muted);margin-bottom:22px;font-size:15px}
+    .hero-cta{display:inline-block;background:var(--neon);color:#000;padding:14px 24px;border-radius:12px;font-weight:800;text-decoration:none;box-shadow:0 0 18px rgba(0,186,255,0.12);transition:.18s;font-size:15px}
+    .hero-cta:hover{transform:scale(1.03)}
+
+    /* Banner */
+    .banner{margin:34px auto;max-width:900px;border-radius:16px;overflow:hidden;border:1px solid var(--border)}
+    .banner img{display:block;width:100%;height:auto;transition:transform 6s ease}
+    .banner:hover img{transform:scale(1.08)}
+
+    /* Sections */
+    .section{padding:46px 20px;max-width:980px;margin:0 auto}
+    h2{font-size:20px;margin-bottom:8px;font-weight:700;text-align:center}
+    .subtitle{color:var(--muted);margin-bottom:20px;text-align:center;font-size:14px}
+
+    /* Cards / Serviços */
+    .services{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+    .card{
+      background:var(--panel);
+      border-radius:14px;
+      padding:18px;
+      border:1px solid var(--border);
+      display:flex;gap:14px;align-items:flex-start;
+      transition:all .18s;
+    }
+    .card:hover{transform:translateY(-4px);border-color:var(--neon)}
+    .icon{font-size:22px;line-height:1}
+    .card h3{margin-bottom:6px;font-size:15px}
+    .card p{color:var(--muted);font-size:13px}
+
+    /* Produtos */
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:12px}
+    .product{
+      background:rgba(255,255,255,0.02);
+      border-radius:12px;padding:14px;border:1px solid var(--border);
+      text-align:center;
+    }
+    .product h4{margin-bottom:6px;color:var(--neon)}
+    .product p{color:var(--muted);font-size:13px}
+
+    /* Contato */
+    .contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+
+    /* FORMULÁRIO ESTILIZADO */
+    .form {
+      background: rgba(11, 11, 11, 0.85);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(0, 186, 255, 0.25);
+      border-radius: 18px;
+      padding: 20px;
+      box-shadow: 0 0 18px rgba(0, 186, 255, 0.08);
+      transition: all 0.3s ease;
+    }
+    .form:hover {
+      border-color: var(--neon);
+      box-shadow: 0 0 20px rgba(0, 186, 255, 0.2);
+    }
+    .form label {
+      display: block;
+      font-weight: 600;
+      font-size: 14px;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+    .form input,
+    .form textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.04);
+      color: #fff;
+      font-size: 14px;
+      margin-bottom: 14px;
+      transition: 0.2s;
+    }
+    .form input:focus,
+    .form textarea:focus {
+      outline: none;
+      border-color: var(--neon);
+      box-shadow: 0 0 8px rgba(0, 186, 255, 0.3);
+    }
+    .form button {
+      background: var(--accent);
+      color: #000;
+      padding: 14px 16px;
+      border-radius: 12px;
+      border: none;
+      font-weight: 800;
+      cursor: pointer;
+      width: 100%;
+      font-size: 15px;
+      box-shadow: 0 4px 18px rgba(245, 194, 43, 0.3);
+      transition: all 0.2s;
+    }
+    .form button:hover {
+      transform: scale(1.03);
+      box-shadow: 0 6px 22px rgba(245, 194, 43, 0.4);
+    }
+
+    .map{height:240px;border-radius:12px;overflow:hidden;border:1px solid var(--border)}
+
+    /* Footer */
+    footer{
+      padding:28px 20px;text-align:center;color:var(--muted);
+      border-top:1px solid var(--border);margin-top:42px;font-size:13px;
+    }
+
+    /* WhatsApp botão flutuante */
+    .whats-float{
+      position:fixed;right:16px;bottom:16px;z-index:90;
+      display:flex;align-items:center;gap:10px;
+      background:linear-gradient(90deg,var(--neon),#00e0ff);
+      color:#000;padding:12px 14px;border-radius:999px;
+      box-shadow:0 10px 30px rgba(0,186,255,0.2);
+      text-decoration:none;font-weight:800;font-size:14px;
+      animation:pulse 2.2s infinite;
+    }
+    .whats-float svg{width:20px;height:20px}
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(0,186,255,0.5); }
+      70% { box-shadow: 0 0 0 12px rgba(0,186,255,0); }
+      100% { box-shadow: 0 0 0 0 rgba(0,186,255,0); }
+    }
+
+    /* Responsivo */
+    @media (max-width:900px){
+      header{flex-wrap:wrap;justify-content:center;text-align:center}
+      nav{justify-content:center;gap:14px}
+      .hero{padding:56px 16px 30px}
+      h1{font-size:24px}
+      .lead{font-size:14px}
+      .contact-wrap{grid-template-columns:1fr}
+      .services,.grid{grid-template-columns:1fr}
+      .logo{font-size:17px;text-align:center;width:100%}
+      .hero-cta{font-size:14px;padding:12px 20px}
+      .section{padding:36px 16px}
+      footer{font-size:12px;line-height:1.6}
+      .whats-float{padding:10px 12px;gap:8px;font-size:13px}
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">GLOBAL DISTRIBUIDORA</div>
+    <nav>
+      <a href="#servicos">Serviços</a>
+      <a href="#produtos">Produtos</a>
+      <a href="#contato">Contato</a>
+      <div class="online">online <span></span></div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="chip">Distribuição • Revenda</div>
+      <h1>Distribuição de bebidas com qualidade e eficiência.</h1>
+      <p class="lead">Atendimento ágil para bares, mercados e eventos. Trabalhamos com cervejas, destilados, refrigerantes e energéticos — retirada no local em Manaus.</p>
+      <a class="hero-cta" href="https://wa.me/5592988432138?text=Ol%C3%A1%20Global%20Distribuidora%2C%20gostaria%20de%20fazer%20um%20pedido." target="_blank" aria-label="Pedir pelo WhatsApp">Entre em contato pelo WhatsApp</a>
+    </section>
+
+    <div class="banner">
+      <img src="https://lh3.googleusercontent.com/sitesv/AICyYdb5IeWkViqbd0H9He-ySoAiaHQtQyesmWTVdwZ1pvx64VN80Hq-v8kH1hTBjvi3nDdzqO96RpABmfX3jhcYy22uAfoKd4c4FPOQUm2-NGeFJrH_9xOoyf-9EMlV3Ao0UgCXhXIRFE_HLME4ipHH6HdbAagr7DBxLx81mxkJIzSSfH9bNCDrB2xIVvVQEsDJMiMTfIaTX5t0vuFpBQMEdw4NlBe4_2l61GWK-i4=w1280" alt="Bebidas e bar - banner">
+    </div>
+
+    <section id="servicos" class="section">
+      <h2>O que oferecemos</h2>
+      <div class="subtitle">Soluções completas para pontos de venda, eventos e parcerias — tudo com logística eficiente.</div>
+
+      <div class="services">
+        <div class="card"><div class="icon">🚚</div><div><h3>Distribuição em Atacado</h3><p>Fornecimento para mercados, conveniências e revendas com condições especiais — retirada no local.</p></div></div>
+        <div class="card"><div class="icon">🍻</div><div><h3>Fornecimento para Eventos</h3><p>Fornecimento para festas e eventos corporativos — retirada no local.</p></div></div>
+        <div class="card"><div class="icon">🏪</div><div><h3>Parcerias com Bares</h3><p>Condições especiais para abastecer bares e restaurantes de forma contínua — retirada no local.</p></div></div>
+        <div class="card"><div class="icon">🛒</div><div><h3>Vendas ao Consumidor</h3><p>Pedidos menores disponíveis para retirada no local.</p></div></div>
+        <div class="card"><div class="icon">🌍</div><div><h3>Bebidas Nacionais & Importadas</h3><p>Variedade de marcas e embalagens para atender todos os perfis de cliente.</p></div></div>
+        <div class="card"><div class="icon">🤝</div><div><h3>Atendimento Personalizado</h3><p>Orçamentos rápidos e suporte para pedidos recorrentes — retirada no local.</p></div></div>
+      </div>
+    </section>
+
+    <section id="produtos" class="section">
+      <h2>Nossos Produtos</h2>
+      <div class="subtitle">Latas, long neck, garrafas, destilados e bebidas sem álcool — peça seu orçamento.</div>
+      <div class="grid">
+        <div class="product"><h4>Cervejas</h4><p>Latas, long neck e garrafas — várias marcas em atacado.</p></div>
+        <div class="product"><h4>Destilados</h4><p>Cachaças, vodkas e bebidas premium para revenda.</p></div>
+        <div class="product"><h4>Refrigerantes & Energéticos</h4><p>Kits e embalagens para pontos de venda e eventos.</p></div>
+      </div>
+    </section>
+
+    <section id="localizacao" class="section">
+      <h2>Localização</h2>
+      <p class="subtitle">Avenida Brigadeiro Hilário Gurjão, Nº 77 — No Fuxico, Manaus / AM</p>
+      <div class="map">
+        <iframe width="100%" height="100%" style="border:0" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Avenida+Brigadeiro+Hil%C3%A1rio+Gurj%C3%A3o+77+Manaus&output=embed"></iframe>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Global Distribuidora de Bebidas • Av. Brigadeiro Hilário Gurjão, 77 — No Fuxico, Manaus / AM • 
+    <a href="https://www.instagram.com/distribuidoragloball?igsh=YjZidWhqOW5uYTIy" style="color:var(--neon);text-decoration:none" target="_blank">Instagram</a>
+  </footer>
+
+  <a class="whats-float" href="https://wa.me/5592988432138?text=Ol%C3%A1%20Global%20Distribuidora%2C%20gostaria%20de%20fazer%20um%20pedido." target="_blank" aria-label="Pedir pelo WhatsApp">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20.52 3.48a11.94 11.94 0 10-16.92 16.92L2 22l1.6-4.62A11.94 11.94 0 0020.52 3.48z" fill="#fff" opacity="0.06"/>
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.966-.273-.099-.472-.148-.672.15-.198.297-.771.966-.945 1.164-.173.198-.347.223-.644.074-.297-.149-1.255-.463-2.39-1.476-.883-.788-1.48-1.761-1.654-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.173.198-.297.298-.495.099-.198.05-.372-.025-.52-.074-.149-.672-1.62-.921-2.22-.243-.583-.49-.504-.672-.513h-.573c-.198 0-.52.074-.793.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.099 3.21 5.086 4.498.712.307 1.266.491 1.699.63.713.227 1.362.195 1.875.118.572-.085 1.758-.718 2.007-1.41.247-.693.247-1.286.173-1.41-.074-.124-.273-.198-.57-.347z" fill="#000"/>
+    </svg>
+    WhatsApp
+  </a>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
